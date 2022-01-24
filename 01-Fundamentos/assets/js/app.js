@@ -1,11 +1,14 @@
 
-// console.log('Hola mundo'); //comentario
+// comentario
+
+alert('Hola desde app.js');
+console.log('Hola mundo'); 
 
 let a = 10, // declaracion de varias variables
     b = 20, 
     c = 30,
     d = 'hola ', 
-    e = 'superman',
+    e = 'spiderman',
     x = a + b;
 
 const saludo = d + e;
@@ -24,6 +27,9 @@ console.log({c});
 
 //imprimiendo variables como una tabla
 console.table({a, b, c, d, e, x});
+
+var miNombre ='javier';
+
 
 
 
