@@ -1,5 +1,5 @@
 /**patron modulo
- * Este tipo de patron ayuda aque el codigo no sea facilmente manipulables desde el DOM
+ * Este tipo de patron ayuda aque el codigo no sea facilmente manipulables desde el DOM 
  *(()=>{})(); 
  *  
 */
