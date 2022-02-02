@@ -10,11 +10,15 @@ let deck = [];
 const tipos =['C','D','H','S'];
 const especiales =['A','J','Q','K'];
 let puntosJugador = 0,
-    puntosCompùtadora = 0;
+    puntosComputadora = 0;
 
 //   Referencias del HTML
 
 const btnPedir = document.querySelector("#btnPedir");
+const btnDetener = document.querySelector("#btnDetener");
+
+const divCartasJugador = document.querySelector('#jugador-cartas');
+const divCartasComputadora = document.querySelector('#computadora-cartas');
 const puntosHTML  = document.querySelectorAll("small");
 
 // Esta funcion crea una nueva baraja 
@@ -66,18 +70,65 @@ const valorCarta = ( carta ) => {
 
 
 }
+// turno de la computadora
 
-    // const valor = valorCarta( pedirCarta() );
-    // console.log({ valor });
+const turnoComnputadora = ( puntosMinimos ) =>{
+    
+    do{
+        const carta = pedirCarta();
 
-    //eventos
+        puntosComputadora = puntosComputadora + valorCarta( carta );
+        puntosHTML[1].innerHTML = puntosComputadora;
+
+
+        //<img class="carta" src="assets/cartas/5C.png" ></img>
+        const imgCarta = document.createElement('img');
+        imgCarta.src = `assets/cartas/${ carta }.png`;
+        imgCarta.classList.add( 'carta' );
+        divCartasComputadora.append( imgCarta );
+        if( puntosMinimos > 21){
+            break;
+        }
+
+    }while(( puntosComputadora < puntosMinimos ) && (puntosMinimos <= 21 ) );
+
+
+
+}
+
+//eventos
 
     btnPedir.addEventListener('click', () => {
         const carta = pedirCarta();
-        console.log( carta );
 
         puntosJugador = puntosJugador + valorCarta( carta );
-        console.log( puntosJugador );
         puntosHTML[0].innerHTML = puntosJugador;
+
+
+        //<img class="carta" src="assets/cartas/5C.png" ></img>
+        const imgCarta = document.createElement('img');
+        imgCarta.src = `assets/cartas/${ carta }.png`;
+        imgCarta.classList.add( 'carta' );
+        divCartasJugador.append( imgCarta );
+
+        if ( puntosJugador > 21){
+            console.warn('Lo siento mucho, pediste');
+            btnPedir.disable = true;
+            btnDetener.disable = true;
+            turnoComnputadora( puntosJugador );
+        }else if ( puntosJugador === 21 ){
+            console.warn('Genial!');
+            btnPedir.disable = true;
+            btnDetener.disable = true;
+            turnoComnputadora( puntosJugador );
+        }
+
+    });
+
+    btnDetener.addEventListener('click', () => {
+        btnPedir.disable = true;
+        btnDetener.disable = true;
+
+        turnoComnputadora( puntosJugador );
 
     });
