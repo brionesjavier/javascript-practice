@@ -1,9 +1,9 @@
 
 class Persona{
     //use strict viene por defecto en la clase
-    nombre  = '' ;
-    codigo  = '' ;
-    frase   = '' ;
+    // nombre  = "" ;
+    // codigo  = "" ;
+    // frase   = "" ;
 
     constructor( nombre = 'Sin nombre', codigo = 'Sin codigo', frase = 'Sin frase'){
 
