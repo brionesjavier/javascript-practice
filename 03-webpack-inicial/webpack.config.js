@@ -6,11 +6,9 @@ module.exports ={
         rules:[
             {
                 test: /\.thml$/,
-                use:[
-                    {
-                        loader: 'html-loader'
-                    }
-                ]
+                optiond:{
+                    attributes: false,
+                }
             }
         ]
     }
