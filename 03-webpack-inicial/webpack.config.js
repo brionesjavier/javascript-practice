@@ -1,9 +1,9 @@
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');//copia el html al dist
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');//copia el ccs al dist
+const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');//saca los comentarios y deja listo para producion los ccs
 
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');//copia las imagenes al dist
 
 module.exports = {
 
