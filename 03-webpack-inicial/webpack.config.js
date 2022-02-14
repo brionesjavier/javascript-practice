@@ -1,21 +1,42 @@
 
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
 
     mode: 'development',
+    
+    optimization: {
+
+      minimizer: [
+        
+        new CssMinimizerWebpackPlugin(),
+        
+      ]
+
+    },
 
     module: {
       rules: [
         {
           test: /\.css$/i,
+          exclude: /style\.css$/i,
           use: [
+             //el orden que se llama los package inporta
             "style-loader", 
             "css-loader"
           ],
         },
 
-
+        {
+          test: /style\.css$/i,//error aqui
+          use: [
+            MiniCssExtractPlugin.loader,
+            'css-loader',
+            //'sass-loader'
+          ],
+        },
 
         {
           test: /\.html$/i,
@@ -36,6 +57,12 @@ module.exports = {
             filename: './index.html'
           
         }),
+
+        new MiniCssExtractPlugin({
+            //filename: '[name].[contenthash].css',
+            filename: '[name].css',
+            ignoreOrder: false
+        })
    ]
 
   };
