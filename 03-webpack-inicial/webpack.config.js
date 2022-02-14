@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports = {
 
     mode: 'development',
@@ -47,10 +49,15 @@ module.exports = {
               minimize: false,
           }
         },
+
       ],
     },
+    
 
     plugins: [
+
+             
+
         new HtmlWebpackPlugin({  // Also generate a test.html
             
             template: './src/index.html',
@@ -62,7 +69,16 @@ module.exports = {
             //filename: '[name].[contenthash].css',
             filename: '[name].css',
             ignoreOrder: false
-        })
+        }),
+
+        new CopyWebpackPlugin({
+          
+          patterns: [
+
+            { from: 'src/assets', to: 'assets/'},
+          ]
+
+        }), 
    ]
 
   };

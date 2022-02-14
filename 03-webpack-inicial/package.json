@@ -11,6 +11,7 @@
   "author": "Javier Briones",
   "license": "ISC",
   "devDependencies": {
+    "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.6.0",
     "css-minimizer-webpack-plugin": "^3.4.1",
     "html-loader": "^3.1.0",
