@@ -2,19 +2,21 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
-
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+//mi modificacion
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
 
     mode: 'production',
     
     optimization: {
-
+      minimize: true,
       minimizer: [
         
-        new CssMinimizerWebpackPlugin(),
         
+        new CssMinimizerWebpackPlugin(),
+        new TerserPlugin(),
       ]
 
     },
@@ -25,6 +27,32 @@ module.exports = {
 
     module: {
       rules: [
+
+
+
+        // {
+        //   test: /\.m?js$/,
+        //   exclude: /node_modules/,
+        //   use: {
+        //     loader: "babel-loader",
+        //     options: {
+        //       presets: ['@babel/preset-env']
+        //     }
+        //   }
+        // },
+
+
+        {
+          
+            test: /\.m?js$/,
+            exclude: /node_modules/,
+            use: [
+              "babel-loader",
+    
+            ]
+
+        },
+
         {
           test: /\.css$/i,
           exclude: /style\.css$/i,
