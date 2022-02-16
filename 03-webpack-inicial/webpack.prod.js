@@ -100,8 +100,8 @@ module.exports = {
         new HtmlWebpackPlugin({  // Also generate a test.html
             
             template: './src/index.html',
-            //filename: './index.[contenthash].html'
-            filename: './index.html'
+            filename: './index.[contenthash].html'
+            
           
         }),
 
