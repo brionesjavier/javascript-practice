@@ -30,11 +30,11 @@ export const crearTodoHTML = ( todo ) =>{
 txtInput.addEventListener('keyup' , ( event )=>{
     
     if ( (event.keyCode === 13 ) && ( txtInput.value.length > 0 ) ) {
-        console.log( txtInput.value );
+        //console.log( txtInput.value );
         const nuevoTodo = new Todo (txtInput.value );
 
         todoList.nuevoTodo( nuevoTodo );
-        console.log( todoList );
+        //console.log( todoList );
         
         crearTodoHTML( nuevoTodo );
         txtInput.value = '';
@@ -44,15 +44,19 @@ txtInput.addEventListener('keyup' , ( event )=>{
 
 divTodoList.addEventListener('click',( event ) => {
     // console.log( 'click' );
-    const nopmbreElemento = event.target.localName ;
-    const todoElemento = event.target.parentElement.parentElement;
-    const todoId =todoElemento.getAttribute( 'data-id' );
+    const nombreElemento    = event.target.localName ;
+    const todoElemento      = event.target.parentElement.parentElement;
+    const todoId            = todoElemento.getAttribute( 'data-id' );
 
     
-    if( nopmbreElemento.includes( 'input' ) ) {
+    if( nombreElemento.includes( 'input' ) ) {
         todoList.marcarCompletados( todoId );
         todoElemento.classList.toggle('completed');
 
+    }else if( nombreElemento.includes('button')){
+        todoList.eliminarTodo( todoId );
+        divTodoList.removeChild( todoElemento );
+
     }
-    console.log(todoList);
+    
 });
