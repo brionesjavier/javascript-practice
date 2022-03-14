@@ -1,11 +1,13 @@
 import './style.css';
-import { Todo, TodoList } from './classes';
+import { Todo, TodoList ,crearTodoHTML} from './classes';
 
 
-const todolist = new TodoList();
-const tarea = new Todo( 'Aprender JavaScript' );
-const tarea2 = new Todo( 'Comprar un libro' );
+export const todoList = new TodoList();
+const tarea = new Todo( 'Aprender JavaScript !!' );
+// const tarea2 = new Todo( 'Comprar un libro' );
 
-todolist.nuevoTodo( tarea );
+todoList.nuevoTodo( tarea );
 
-console.log( todolist );
+console.log( todoList );
+
+crearTodoHTML( tarea );

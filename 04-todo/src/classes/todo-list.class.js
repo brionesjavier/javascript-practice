@@ -1,18 +1,23 @@
-export class TodoList{
-    contructor(){
-        this.todos =[];
+//import { Todo } from "./todo.class";
+
+export class TodoList {
+    todos = [];
+
+    contructor() {
+        this.todos = [];
     }
 
-    nuevoTodo(todo){
-        this.todos.push ( todo );
+    nuevoTodo( todo ){
+        this.todos.push( todo );
 
     }
 
-    eliminarTodo(id){
+    eliminarTodo( id ){
     
     }
 
-    marcarCompletados(id){
+    marcarCompletados( id ){
+        
 
     }
 
