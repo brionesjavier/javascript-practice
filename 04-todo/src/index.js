@@ -8,3 +8,7 @@ export const todoList = new TodoList();
 //todoList.todos.forEach(todo => {crearTodoHTML(todo);});//forma funcion flecha
 
 todoList.todos.forEach(crearTodoHTML);//forma corta 
+todoList.todos[1].imprimirClase();
+
+console.log(todoList);
+
