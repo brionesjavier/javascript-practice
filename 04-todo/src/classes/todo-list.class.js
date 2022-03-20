@@ -43,6 +43,7 @@ export class TodoList {
 
     guardarLocalStorage(){
         localStorage.setItem('todo',JSON.stringify( this.todos ));
+        this.pendienteTodo()
 
     }
 
@@ -54,6 +55,20 @@ export class TodoList {
         
         //this.todos = this.todos.map(obj=>Todo.fromfson(obj));//metodo largo
         this.todos = this.todos.map( Todo.fromfson );
+        this.pendienteTodo();
 
+    }
+
+    pendienteTodo(){
+        const tareasPendiente=document.querySelector('strong');
+        let contador =0;
+        for(let i = 0;i<this.todos.length;i++){
+            if(this.todos[i].completado===false){
+                contador++;
+            }
+            
+        }
+        tareasPendiente.innerHTML = contador;
+        return tareasPendiente;
     }
 }
