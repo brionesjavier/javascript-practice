@@ -6,11 +6,11 @@ const heroes = {
     },
     iron: {
         nombre: 'Ironman',
-        poder: 'Absurda cantidad de dinero',
+        poder:  'Absurda cantidad de dinero',
     },
     spider: {
         nombre: 'Spiderman',
-        poder: 'La mejor reaccion a alergica a las picadura de las araña'
+        poder:  'La mejor reaccion a alergica a las picadura de las araña'
     },
 }
 
